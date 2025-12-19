@@ -11,6 +11,9 @@ df = pd.read_csv("data/IMLP4_13-product_reviews_full.csv")
 # drop all rows with missing values
 df = df.dropna()
 
+# For faster training, sample a subset of the data (e.g., 10%)
+df = df.sample(frac=0.1, random_state=42)
+
 # Convert all sentiment values to lowercase and strip extra spaces
 df['sentiment'] = df['sentiment'].astype(str).str.lower().str.strip()
 
